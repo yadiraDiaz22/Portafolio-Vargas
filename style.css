@@ -1,0 +1,786 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');/*Estilo de letras impportado de google fonts*/
+
+
+/*Color y estilo de letras de navbar*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+
+:root{
+    --bg-color:#6f7171;
+    --gradient-white-bg:linear-gradient(0deg,#fff 0%,#edf4fa 51%,#e5eef7 100%);
+    --gradient-color-bg:linear-gradient(180deg,rgb(57, 97, 97)0%,/*ARRIBA/Botones, letras de navbar e iconos, Diseñadora web, logos de servicios*/ 
+                                                rgb(29, 79, 79)51%,/*/EN MEDIO//Botones, letras de navbar e iconos, Diseñadora web, logos de servicios*/ 
+                                                rgb(13, 178, 159)100%);/*ABAJO//Botones, letras de navbar e iconos, Diseñadora web, logos de servicios*/ 
+    --main-color:#eceff1;/*Aplicaciones y titulos*/
+    --font-color:#90979f;/*Subtitulos y texto de experiencia*/
+    --hover-box-shadow:rgba(0,0,0,0.19)0px 10px 20px,/*sombra de botones*/
+                       rgba(0,0,0,0.23)0px 6px 6px; /*sombra de botones*/      
+    --gradient-white-bg2:linear-gradient(98deg,#121212 0%,#161616 100%); /*Degradado de botones blancos y cajas de servicios, experiencias y contacto*/                                                           
+}
+
+a{
+    text-decoration: none;
+    color: #ede6e6;/*Color de logo yadira y navbar*/ 
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color);/*Color de fondo a partir de SOBRE MI*/ 
+    overflow-x: hidden;/* oculte todos los contenidos que se salen de la caja del elemento*/
+}
+
+header{
+    padding: 15px 8%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex; /*Para que este en fila*/
+    align-items: center;
+    justify-content: space-between;/*Dar espacios entre los apartados del navbar*/
+    background: rgb(19, 19, 19); /*Color de fondo del navbar*/
+    z-index: 100;
+    transition: .3s;
+}
+/*LOGO parte donde dice Yadira*/
+header .logo{
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+/*Letra de Y en el logo*/
+span{
+    background: var(--gradient-color-bg);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/*Inicio, proyectos, etc*/
+ul.navlist{
+    display: flex;
+}
+
+.navlist li{
+    margin: 0 1rem;
+}
+
+.navlist li a{
+    display: inline-flex;
+    font-weight: 600;/*Tamaño de la letra del navbar*/
+}
+
+/*Diseño para que cuando pases el mouse por arriba del navbar cambie el color*/
+.navlist li a:hover,.navlist li a.active{
+    background: var(--gradient-color-bg);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/*Botones de INICIO*/
+.btn{
+    background: var(--gradient-color-bg); /*Color del boton enviar del apartado CONTACTO*/
+    color: #fff;/*Color del texto del boton de enviar del apartado CONTACTOS*/
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-weight: 500;/*Tamaño de letra*/
+    transition: all .3s ease;
+}
+
+.btn:hover,.btn-box .d-CV:hover{
+    box-shadow: var(--hover-box-shadow);/*Sombra de bototnes de descargar CV, Boton de enviar*/
+}
+/*===============MENU(cuando haces chica la pestaña)================*/
+
+.right-header{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    grid-gap: .8rem;
+}
+
+/*Lineas Horizontales de menu cuando esta chico*/
+.menu-icon{
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+}
+
+.menu-icon .bar,
+.menu-icon::after,
+.menu-icon::before{
+    content: "";
+    display: none; /*Para que no se vean las lineas horizontales del menu*/
+    width: 100%;
+    height: 4px;
+    border-radius: 3px;
+    background: #faf8f8;
+    margin: 6px 0;
+    transition: .4s;
+}
+/*1 Linea Horizontal que gira para ser una x*/
+.menu-icon.active::before{
+    transform: rotate(-45deg) translate(-6px , 6px);
+}
+/*3 Linea Horizontal que gira para ser una x*/
+.menu-icon.active::after{
+    transform: rotate(45deg)translate(-8px , -8px);
+}
+/*2 Linea Horizontal que desaparece para ser una x*/
+.menu-icon.active .bar{
+    opacity: 0;
+}
+
+/* ==================== INICIO ============================ */
+section{
+    padding: 160px 8%;
+}
+
+.inicio{
+    min-height: 100vh;/*Hace que ocupe toda la altura de la pantalla*/
+    height: 100%;
+    width: 100%;
+    display: flex;
+    grid-template-columns: repeat(2,1fr);/* establece una cuadrícula con dos columnas de ancho igual dentro de un contenedor*/
+    align-items: center;
+    grid-gap: 9em;/* espacio entre las filas de texto e imagen de Inicio */
+    background: rgb(213, 210, 210);/*Color de fondo del apartado de Inicio*/
+}
+
+.hero-info{
+    margin-top: -2rem;/*Espacio que tiene arriba entre el texto e imagen y el navbar*/
+}
+/*texto Bienvenido a mi portafolio*/
+.hero-info h3{
+    color: rgb(23, 21, 21);/*Color del texto Bienvenido a mi portafolio*/
+    font-weight: 300;/*Ancho de la letra*/
+    text-transform: uppercase;/*Que este en puras mayusculas*/
+    font-size: 1.1rem;/*Tamaño de letra*/
+}
+/*Hola soy Yadira Diaz*/
+.hero-info h1{
+    font-size: 3.5rem;/*Tamaño de letra*/
+    
+}
+
+
+/*Texto Diseñadora Web*/
+.text-animate h2{
+    font-size: 2rem;/*Tamaño de letra*/
+    font-weight: 700;/*Ancho de la letra*/
+    margin-bottom: 2rem;/*Espacio entre Diseñadora web y texto de abajo*/
+    color: transparent;/* Hace que el texto sea transparente para que se vea el fondo a través de las letras */
+    -webkit-text-stroke: 0.1vw #077377;/*Margen del texto*/
+    background: var(--gradient-color-bg);/*Color del texto*/
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;/* elemento de texto con un fondo, el fondo solo se mostrará dentro de las letras del texto y no se extenderá alrededor de ellas*/
+    background-position: 0 0;
+}
+
+.hero-info p{
+    font-size: .9rem;/*Tamaño de letra*/
+    color: black;/*Texto de descripcion en Inicio*/
+    line-height: 1.5rem;/*Espacios entre lineas*/
+    text-align: justify;
+}
+/*Boton de Inicio*/
+.btn-box{
+    display: flex;
+    width: 320px;
+    margin-top: 2rem;/*Espacio entre texto descriptivo y boton de descargar */
+    margin-bottom: 3rem;/*Espacio entre boton e iconos*/
+}
+
+.btn-box .btn{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+/*Boton CV de Inicio*/
+.btn-box .d-CV{
+    background: var(--gradient-white-bg2);/*Fondo del boton*/
+    padding: 10px;/*Espacio del boton*/
+    border-radius: 5px;/*Esquinas redondeadas del boton*/
+    font-weight: 500;/*Ancho de letra*/
+    color: #faf6f6;/*Color del texto del boton*/
+    box-shadow: rgba(60,64,67,0.3)0px 1px 2px 0,/*Sombra del boton*/
+                  rgba(60,64,67,0.15)0px 2px 6px 2px;
+    transition: all .3s ease;              
+}
+/*Iconos Redes Sociales*/
+.social-media{
+    display: flex; 
+    justify-content: space-between;
+    width: 150px;
+    height: 45px;
+}
+
+.social-media a{
+    width: 42px;/*Contorno de circulo*/
+    height: 42px;/*Contorno de circulo*/
+    background: rgb(213, 210, 210);/*Color de adentro de los iconos*/
+    display: inline-flex;
+    justify-content: center;/*Alineacion del icono*/
+    align-items: center;
+    transition: .4s;
+    border-radius: 50%;/*bordes de los iconos*/
+    z-index: 1;
+}
+
+/*Iconos cuando les das clic*/
+.social-media a:hover{
+    background: var(--gradient-color-bg);/*color cuando le das click al icono*/
+
+}
+
+.bg-icon{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Borde del circulo de los iconos*/
+.bg-icon span{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-color-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: animate 1s linear infinite;
+}
+/*Imagen de inicio*/
+.img-hero{
+    position: relative;
+    animation: floatImage 4s ease-in-out infinite;/*Imagen flotante y rapidez*/
+    animation-delay: 0s;/*Cuanto tiempo tarda en flotar cuando le das recargar a la pag*/
+}
+
+.img-hero img{
+    position: relative;
+    width: 400px;/*tamaño de imagen*/
+    height: auto;
+    z-index: 10;
+}
+
+/* ==================== SOBREMI section css ============================ */
+.sobremi{
+    display: flex;/*acomodar la imagen y el texto*/
+    justify-content: space-between;/*espacio entre imagen y texto*/
+    align-items: center;
+    gap: 1rem;/*Que tanto esta separado la imagen del texto*/
+}
+
+.sobremi .sobremi-img{
+    position: relative;
+}
+
+.sobremi .sobremi-img .sobremiHero{
+    width: 30vw;/*Tamaño de la imagen*/
+    height: auto;
+}
+
+.sobremi-img .ring{
+    position: absolute;
+    top: 22%;
+    right: 1%;
+}
+
+.sobremi-img .circle{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+
+.sobremi-content{
+    padding: 1rem 0;/*Espacio de arriba del section sobre mi*/
+}
+
+/*Color del titulo Sobre mi*/
+.sobremi-content h2{
+    color: var(--main-color);
+}
+
+.sobremi-content h3{
+    font-size: 2.1rem;/*tamaño de 3 años de carrea mas 2 de experiencia laboral*/
+    line-height: 3rem;/*Espacio entre lineas de 3 años de carrera*/
+    margin: .5rem 0;
+}
+
+.sobremi-content p{
+    color: black;/*Color de texto de Estudio ing en Entornos y los textos de habilidades y educacion*/
+    text-align: justify;
+}
+
+.text-box p{
+    font-size: 1.1rem;/*Tamaño de letra de los textos de habilidades y educacion*/
+    font-weight: 500;/*Ancho de letra de los textos de habilidades y educacion*/
+}
+
+.sobremi-btn{
+    margin: .8rem 0;
+}
+/*Boton de descarga cv en Sobre mi*/
+.sobremi-btn button,.cvContent a{
+    background: var(--gradient-white-bg2);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ece6e6;
+    box-shadow: rgba(67, 66, 60, 0.3)0px 1px 2px 0,
+                  rgba(60,64,67,0.15)0px 2px 6px 2px;
+    margin-right: .5rem;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+/*Botones sobre mi*/
+.sobremi-btn button.active{
+    background: var(--gradient-color-bg);/*Color de boton*/
+    color: #ffff;/*Color de texto del boton cuando esta en azul*/
+}
+
+.text-box{
+    margin: .8rem 0;
+}
+/*Los textos que muestran las habilidades y educacion*/
+.content-btn > .content:not(:first-child){
+    display: none;
+}
+/*Sombra de botones*/
+.sobremi-btn button:hover{
+    box-shadow: var(--hover-box-shadow);
+}
+
+.cvContent{
+    margin-top: 1.5rem;/*Espacio entre texto y boton de cv*/
+}
+/* ==================== Servicios  ============================ */
+.servicios{
+    position: relative;
+}
+/*Titulo Mis servicios y QUE PUEDO HACER POR TI*/
+.main-text{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.main-text .heading{
+    color: var(--main-color);/*Color de texto de Servicio/experiencia/proyectos y contactame*/
+}
+/*subtitulo Texto de QUE PUEDO HACER POR TI*/
+.main-text span{
+    color: white;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+.allServicios{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px , auto));/*Para que los cuadros esten en fila*/
+    align-items: center;
+    gap: 2rem;/*Espacios entre cada cuadro de servicio*/
+    position: relative;
+    z-index: 1;
+}
+
+.serviciosItem{
+    box-shadow: rgba(0,0,0,0.1)0px 20px 15px 0,
+                  rgba(0,0,0,0.06)0px 20px 15px 0px;
+    padding: 3rem 1rem;/*Ancho de los cuadros*/
+    border-radius: 90px;/*Borde de los cuadros de servicios*/
+    background: var(--gradient-white-bg2);
+    text-align: center;
+}
+/*Circulo que gira en los iconos*/
+.icon-servicios{
+    display: inline-flex;
+    position: relative;
+}
+
+/*Circulo del icono*/
+.icon-servicios i{
+    box-shadow: rgba(0, 0, 0, 0.872)0px 1px 3px 0,/*Borde del circulo*/
+                  rgba(233, 14, 14, 0.06)0px 1px 2px 0px;
+    padding: .5rem;
+    border-radius: 50%;
+    background: var(--gradient-color-bg);/*Color de fondo de adentro del circulo*/
+    width: 70px;
+    height: 70px;
+    color: #fff;
+    font-size: 2.5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: .4s;
+    z-index: 1;
+}
+
+.serviciosItem:hover i{
+    outline: 1px solid var(--main-color);
+    transform: scale(1.2);/*Cuanto se agranda el circulo cuando le pasas el mouse encima*/
+}
+
+/*Circulo que se mueve de fondo//borde*/
+.icon-servicios span{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: -5px;
+    top: -5px;
+    background: var(--gradient-color-bg);/*color*/
+    border-radius: 50%;
+    animation: animate 1s linear infinite;
+}
+/*Texto de servicios dentro de los cuadros*/
+.serviciosItem h3{
+    margin: 2rem 0 0.5rem;/*espacio entre el icono y el texto*/
+    color: white;
+}
+
+.serviciosItem p{
+    color: rgb(151, 147, 147);
+    text-align: center;
+}
+
+/* ==================== EXPERIENCIA/ PORTFOLIO============================ */
+
+.portfolio-gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(305px , 1fr));
+    gap: 1rem; /*Espacio entre recuadros en la galeria*/
+    
+}
+.portfolio-img img{
+    display: block;
+    width: 100%;
+    height: 180px;
+    transition: .3s;
+}
+
+.portfolio-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem;
+    box-shadow: rgba(0,0,0,0.18)15px 15px 15px 15px;/*sombra de los cuadros*/
+    background: var(--gradient-white-bg2);
+    border-radius: 30px;
+    transition: all .3s ease;
+}
+
+.portfolio-content{
+    width: 100%;
+    padding-left: .5rem;
+    padding-bottom: .5rem;
+}
+
+.portfolio-img{
+    width: 100%;/*tamaño de la imagen*/
+    border-radius: 30px;/*borde de la imagen*/
+    overflow: hidden;
+}
+
+.portfolio-box:hover img{
+    transform: scale(1.2);/*Tamaño que se agranda la imagen cuando pasas el mouse arriba*/
+}
+
+.portfolio-content a.readMore{
+    padding: 8px 12px;
+    font-size: .8rem;
+}
+
+.portfolio-content p{
+    font-size: .9rem;
+    color: rgb(151, 147, 147);
+    margin: .5rem 0 1rem 0;
+}
+.portfolio-content h3{
+color: white;
+}
+
+
+/* ==================== Contact section css code ============================ */
+
+.contact-info{
+    width: 100%;
+    background: var(--gradient-white-bg2);
+    box-shadow: rgba(0, 0, 0, 0.559)0px 3px 5px 1px;
+    padding: 1rem;
+    border-radius: 25px;
+}
+
+
+.contact-info input,
+.contact-info form textarea{
+    width: 100%;
+}
+
+.contact-info form input,
+.contact-info form textarea{
+    padding: .8rem;/*espacios entre casillas*/
+    border: 2px solid #aeacac9b;
+    margin: .5rem 0;
+    background: #e5edf4a3;
+    border-radius: 5px;
+    outline: none;/*linea de alrededor*/
+    transition: .3s;
+}
+
+.contact-info form .input-box{
+    display: flex;
+    justify-content: space-between;/*espacio entre nombre y apellido*/
+}
+
+.input-box input{
+    width: 49%;
+}
+
+form input:focus,form textarea:focus{
+    filter: brightness(100%);
+    background: #d2e9ff;
+    border: 2px solid #f8caca;
+}
+
+form textarea{
+    resize: none;
+}
+/*Boton de enviar*/
+form .btn{
+    padding: 15px 20px;
+    cursor: pointer;
+    border: none;
+}
+
+
+
+/*======================= footer ============================ */
+footer{
+    text-align: center;
+    margin: 0 0%;
+    padding: 2rem 0;
+    border-top: 2px solid #b5adad;
+    
+}
+
+/*======================= @keyframes ============================ */
+/*Efecto para cuando le das clic al icono*/
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes progress{
+   to{
+    stroke-dashoffset: var(--target);
+   }
+}
+/*Para que flote la imagen de Inicio*/
+@keyframes floatImage{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-22px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/*======================= BreakPoints para pagina responsiva ============================ */
+
+@media(max-width:1200px){
+    html{
+        font-size: 95%;
+    }
+}
+
+@media(max-width:991px){
+    header,section,footer{
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .inicio,.portfolio-box{
+        flex-direction: column-reverse;
+    }
+    .sobremi,.contactSkills{
+        flex-direction: column;
+    }
+    .sobremi .sobremi-img .sobremiHero{
+        width: 100%;
+    }
+    .proposal img{
+        width: 52vw;
+    }
+    .portfolio-img img{
+        width: 100%;
+        height: 100%;
+    }
+    .portfolio-gallery{
+        grid-template-columns: repeat(auto-fill,minmax(250px , 1fr));
+    }
+    .img-hero{
+        margin-top: 3rem;
+    }
+}
+
+@media(max-width:768px){
+    .proposal{
+        display: none;
+    }
+    .menu-icon .bar,.menu-icon::after,.menu-icon::before{
+        display: block;
+    }
+    ul.navlist{
+        position: absolute;
+        top: -1000px;
+        transition: all .3s ease;
+        width: 100%;
+        text-align: center;
+        display: block;
+        background: rgb(9, 91, 113);
+        left: 0;
+        border-top: 2px solid rgba(248, 202, 202, .7);
+    }
+    ul.navlist a{
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+    .navlist.active{
+        top: 100%;
+    }
+    .overlay{
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        position: fixed;
+        background: rgba(0,0,0,0.5);
+        z-index: 8;
+        opacity: 0;
+        transform: .3s;
+        pointer-events: none;
+    }
+    body.open .overlay{
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .btn{
+        padding: 10px;
+    }
+    .inicio{
+        grid-gap: 0;
+    }
+    .fillter-buttons button{
+        padding: 10px;
+        font-size: .8rem;
+    }
+}
+
+@media(max-width:530px){
+    html{
+        font-size: 80%;
+    }
+    section{
+        padding: 50px 3%;
+    }
+    .contact-info form .input-box{
+        display: block;
+    }
+    .input-box input {
+        width: 100%;
+    }
+    .rotate-text{
+        display: none;
+    }
+    .img-hero img{
+        width: 100%;
+    }
+    .text-animate{
+        width: 23.8rem;
+    }
+    .btn-box{
+        width: 266px;
+        margin-bottom: 3rem;
+    }
+    .sobremi-btn button{
+        padding: 10px 15px;
+    }
+    .fillter-buttons{
+        display: grid;
+        grid-gap: 1rem;
+    }
+    .fillter-buttons button{
+        width: 100%;
+        padding: 13px;
+    }
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 140px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.93);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 30px;
+}
+.modal-text {
+    color: #fff;
+    padding: 20px;
+    text-align: justify;
+}
+
+.close {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
